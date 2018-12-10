@@ -24,6 +24,7 @@ namespace Starcraft.UI
                 var winningPlayer = CoreEngine.GetWinner(probabilities);
                 winningPlayer.Wins++;
                 Console.WriteLine($"\tGAME {gameNumber} STARTED!");
+                Console.WriteLine($"{winningPlayer.SelectedRace.Name} recollect {winningPlayer.SelectedRace.Recollect} ");
                 Thread.Sleep(300);
                 Console.WriteLine($"Game {gameNumber} finished. The winner is {winningPlayer.Nick}!!\n");
                 LogGame(winningPlayer, gameNumber);
@@ -64,7 +65,7 @@ namespace Starcraft.UI
                 sw.Close();
             }
         }
-
+        //crear raza con factory
         private static Player CreatePlayer()
         {
             Player player = new Player();
@@ -73,18 +74,10 @@ namespace Starcraft.UI
             player.Nick = Console.ReadLine();
             Console.WriteLine("Player race: [Z]erg  [T]erran  [P]rottos");
             var tempRace = Console.ReadLine();
-            switch (tempRace.ToLower())
-            {
-                case "z":
-                    player.SelectedRace = Races.Zerg;
-                    break;
-                case "t":
-                    player.SelectedRace = Races.Terran;
-                    break;
-                case "p":
-                    player.SelectedRace = Races.Prottos;
-                    break;
-            }
+
+            SimpleRazaFactory factory = new SimpleRazaFactory();
+            RazaStore store = new RazaStore(factory);
+            player.SelectedRace = store.OrderRaza(tempRace.ToUpper());
 
             return player;
         }

@@ -44,7 +44,10 @@
     <Compile Include="CoreEngine.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raza.cs" />
     <Compile Include="Razas.cs" />
+    <Compile Include="RazaStore.cs" />
+    <Compile Include="SimpleRazaFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

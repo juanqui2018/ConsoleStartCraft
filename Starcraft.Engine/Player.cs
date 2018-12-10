@@ -10,7 +10,7 @@ namespace Starcraft.Engine
     {
         public string Nick { get; set; }
 
-        public Races SelectedRace { get; set; }
+        public Raza SelectedRace { get; set; }
 
         public int ProbabilityWinning { get; set; }
 

@@ -14,7 +14,7 @@ namespace Starcraft.Engine
 
             return probabilities[winningIndex];
         }
-        //crear los jugadores con factory
+        
         public static List<Player> SetProbability(List<Player> players)
         {
             Random ran = new Random();
